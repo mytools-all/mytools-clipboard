@@ -1,0 +1,24 @@
+{
+  "name": "mytools-clipboard",
+  "description": "系统剪贴板：查看历史记录、复制与删除。",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "main": "index.html",
+  "capabilities": [
+    "clipboard.history",
+    "clipboard.write",
+    "clipboard.remove"
+  ],
+  "features": [
+    {
+      "code": "history",
+      "explain": "打开系统剪贴板",
+      "cmds": [
+        "剪贴板",
+        "剪贴板历史",
+        "clipboard"
+      ]
+    }
+  ],
+  "pluginName": "系统剪贴板"
+}

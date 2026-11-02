@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>系统剪贴板</title>
+    <link rel="stylesheet" href="tool.css" />
+    <style>
+      #records {
+        flex: 0 0 46%;
+        padding: 0;
+        border-right: 1px solid var(--border);
+      }
+      .record {
+        padding: 12px 16px;
+        border-bottom: 1px solid var(--border);
+        cursor: pointer;
+        outline-offset: -2px;
+      }
+      .record.selected {
+        background: var(--soft);
+        border-left: 3px solid var(--accent);
+      }
+      .record pre {
+        max-height: 55px;
+        overflow: hidden;
+      }
+      .record img {
+        max-height: 55px;
+        max-width: 100%;
+      }
+      #detail img {
+        max-width: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="toolbar">
+        <div class="tabs" id="types">
+          <button class="active" data-type="all">全部</button
+          ><button data-type="text">文本</button
+          ><button data-type="image">图片</button>
+        </div>
+        <span class="spacer"></span
+        ><input
+          id="search"
+          placeholder="搜索剪贴板 /"
+          aria-label="搜索剪贴板"
+        /><button id="refresh">刷新</button><button id="theme">◐</button>
+      </div>
+      <div class="workspace">
+        <section
+          class="content"
+          id="records"
+          tabindex="0"
+          aria-label="剪贴板历史"
+        ></section>
+        <section id="detail" class="content">
+          <div class="empty">选择一条记录预览</div>
+        </section>
+      </div>
+      <div class="toolbar">
+        <span id="count" class="muted">已选 0 条</span
+        ><label
+          >合并分隔符
+          <select id="separator">
+            <option value="newline">
+              换行
+            </option>
+            <option value=" ">空格</option>
+            <option value="">无</option>
+          </select></label
+        ><span class="spacer"></span
+        ><button id="copy" class="primary">复制选择</button
+        ><button id="hide">隐藏</button><button id="delete">删除</button>
+      </div>
+      <footer id="status" class="status" role="status"></footer>
+    </main>
+    <script type="module" src="app.mjs"></script>
+  </body>
+</html>

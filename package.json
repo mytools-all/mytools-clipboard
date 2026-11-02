@@ -1,0 +1,40 @@
+{
+  "name": "@mytools-all/mytools-clipboard",
+  "version": "0.1.0",
+  "description": "系统剪贴板：查看历史记录、复制与删除。",
+  "type": "module",
+  "main": "index.html",
+  "license": "MIT",
+  "author": "MyTools Contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mytools-all/mytools-clipboard.git"
+  },
+  "homepage": "https://github.com/mytools-all/mytools-clipboard#readme",
+  "bugs": {
+    "url": "https://github.com/mytools-all/mytools-clipboard/issues"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "files": [
+    "plugin.json",
+    "*.html",
+    "*.css",
+    "*.svg",
+    "*.png",
+    "vendor/",
+    "LICENSE",
+    "THIRD_PARTY.md",
+    "README.md",
+    "app.mjs",
+    "common.mjs",
+    "utils.mjs",
+    "*.js",
+    "*.LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  }
+}
