@@ -7,6 +7,7 @@ import {
   ready,
   call,
   escapeHtml,
+  confirmAction,
 } from "./common.mjs";
 let entries = [],
   selected = new Set(),
@@ -118,7 +119,7 @@ $("#hide").onclick = () => {
 };
 $("#delete").onclick = action(async () => {
   if (!selected.size) throw Error("请先选择记录");
-  if (!confirm("确定删除选中的 " + selected.size + " 条记录？")) return;
+  if (!await confirmAction("确定删除选中的 " + selected.size + " 条记录？")) return;
   for (const id of selected) await call("clipboard.remove", { id });
   selected.clear();
   await refresh();

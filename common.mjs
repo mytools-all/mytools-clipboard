@@ -1,4 +1,26 @@
 export const $ = (selector) => document.querySelector(selector);
+export function confirmAction(message) {
+  return new Promise((resolve) => {
+    const dialog = document.createElement("dialog");
+    dialog.style.cssText = "max-width:360px;padding:24px;border:1px solid #667085;border-radius:12px;background:var(--panel-bg,#20242b);color:var(--text,#eee)";
+    const text = document.createElement("p");
+    text.textContent = message;
+    const cancel = document.createElement("button");
+    cancel.textContent = "取消";
+    const accept = document.createElement("button");
+    accept.textContent = "确认";
+    accept.style.marginLeft = "16px";
+    let settled = false;
+    const finish = (value) => { if (settled) return; settled = true; dialog.close(); dialog.remove(); resolve(value); };
+    cancel.onclick = () => finish(false);
+    accept.onclick = () => finish(true);
+    dialog.oncancel = (event) => { event.preventDefault(); finish(false); };
+    dialog.append(text, cancel, accept);
+    document.body.append(dialog);
+    dialog.showModal();
+    cancel.focus();
+  });
+}
 export const $$ = (selector) => [...document.querySelectorAll(selector)];
 export function status(text, error = false) {
   const el = $("#status");
