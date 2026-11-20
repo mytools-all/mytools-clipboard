@@ -1,6 +1,6 @@
 {
   "name": "@mytools-all/mytools-clipboard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "系统剪贴板：查看历史记录、复制与删除。",
   "type": "module",
   "main": "index.html",
@@ -36,5 +36,8 @@
   ],
   "scripts": {
     "test": "node --test"
+  },
+  "devDependencies": {
+    "happy-dom": "21.0.4"
   }
 }

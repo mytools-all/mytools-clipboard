@@ -15,7 +15,7 @@ let entries = [],
   kind = "all",
   cursor = 0;
 const isImage = (e) =>
-  /^data:image\/(png|jpeg|bmp);base64,/.test(e.content || "");
+  (e.kind === "image" || e.kind == null) && /^data:image\/(png|jpeg|bmp);base64,/.test(e.content || "");
 const visible = () =>
   entries.filter(
     (e) =>
@@ -70,8 +70,7 @@ function render() {
         )
         .join("")
     : '<div class="empty">无匹配记录' +
-      (kind === "image" ? " · 当前宿主仅采集文本历史" : "") +
-      "</div>";
+      (kind === "image" ? " · 请复制一张图片后刷新；旧宿主需升级才会采集图片" : "") + "</div>";
   $$(".record").forEach((el) => {
     el.onclick = (e) => {
       const id = Number(el.dataset.id);
