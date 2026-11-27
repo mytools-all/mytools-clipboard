@@ -1,7 +1,7 @@
 {
   "name": "mytools-clipboard",
   "description": "系统剪贴板：查看历史记录、复制与删除。",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "apiVersion": 1,
   "main": "index.html",
   "capabilities": [
@@ -20,5 +20,8 @@
       ]
     }
   ],
-  "pluginName": "系统剪贴板"
+  "pluginName": "系统剪贴板",
+  "engines": {
+    "mytools": ">=0.2.0 <0.3.0"
+  }
 }
